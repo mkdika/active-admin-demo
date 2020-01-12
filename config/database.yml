@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: aa_demo_development
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: <%= ENV["DATABASE_PORT"] %>
+
+test:
+  <<: *default
+  database: aa_demo_test
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: <%= ENV["DATABASE_PORT"] %>
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
