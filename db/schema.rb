@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_153259) do
+ActiveRecord::Schema.define(version: 2020_01_13_055009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 2020_01_12_153259) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name", limit: 100
+    t.string "membership", limit: 20
+    t.string "email", limit: 100
+    t.date "start_join", default: DateTime.now
+    t.decimal "balance", default: 0.0
+    t.integer "point", default: 0.0
+    t.text "story"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
