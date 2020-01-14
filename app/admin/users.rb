@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  permit_params :email,
+  permit_params :role,
+                :email,
                 :display_name,
                 :password,
                 :password_confirmation,
@@ -7,6 +8,7 @@ ActiveAdmin.register User do
 
   index do
     selectable_column
+    column :role
     column :email
     column :display_name
     column :locked?
@@ -14,12 +16,14 @@ ActiveAdmin.register User do
     actions
   end
 
+  filter :role, as: :select, collection: User.roles
   filter :email
   filter :display_name
   filter :locked?
 
   form do |f|
     f.inputs do
+      f.input :role, as: :select, collection: User.roles
       f.input :email
       f.input :display_name
       f.input :password

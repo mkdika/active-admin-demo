@@ -75,6 +75,9 @@ gem 'chosen-rails'
 # Authentication
 gem 'devise'
 
+# Authorization
+gem 'cancancan'
+
 # Rails console improvement
 gem 'awesome_print', require: 'ap'
 gem 'awesome_rails_console'
