@@ -13,4 +13,8 @@ class Customer < ApplicationRecord
   def membership
     super || 'silver'
   end
+
+  def show_fav_genres
+    fav_genres.map { |f| Genre.find f }
+  end
 end

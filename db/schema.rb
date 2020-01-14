@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_055009) do
+ActiveRecord::Schema.define(version: 2020_01_14_014031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,19 @@ ActiveRecord::Schema.define(version: 2020_01_13_055009) do
     t.string "name", limit: 100
     t.string "membership", limit: 20
     t.string "email", limit: 100
-    t.date "start_join", default: DateTime.now
-    t.decimal "balance", default: 0.0
-    t.integer "point", default: 0.0
+    t.date "start_join"
+    t.decimal "balance"
+    t.integer "point"
     t.text "story"
-    t.boolean "active", default: true
+    t.integer "fav_genres", default: [], array: true
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fav_genres"], name: "index_customers_on_fav_genres", using: :gin
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
