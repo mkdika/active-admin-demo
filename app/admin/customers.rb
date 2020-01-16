@@ -1,4 +1,5 @@
 ActiveAdmin.register Customer do
+  extend AuditTrail
   permit_params :name,
                 :membership,
                 :email,

@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  menu parent: 'Manage'
+  extend AuditTrail
   permit_params :role,
                 :email,
                 :display_name,

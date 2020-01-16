@@ -12,6 +12,6 @@ class Ability
     end
     can(:read, Genre)
     can(:manage, Customer)
-    can(:read, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin")
+    can(:read, ActiveAdmin::Page, name: 'Dashboard', namespace_name: 'admin')
   end
 end

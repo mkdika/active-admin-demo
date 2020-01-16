@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_paper_trail
 
   enum role: { admin: 'admin', supervisor: 'supervisor', user: 'user' }
 

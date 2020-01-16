@@ -1,0 +1,20 @@
+columns do
+  column do
+    link_to "< Back to #{resource.class.to_s.capitalize} details", eval("admin_#{resource.class.to_s.downcase}_path(#{resource.id})"), method: :get
+  end
+end
+columns { column { br } }
+paginated_collection(resource.versions.page(params[:version_page]).per(10), param_name: 'version_page', download_links: false) do
+  table_for collection do
+    column :event do |v|
+      v.event.upcase
+    end
+    column 'User', :whodunnit
+    column :changeset do |version|
+      version.changeset.except('updated_at')
+    end
+    column 'Time', :created_at do |v|
+      v.created_at.strftime('%Y-%m-%d %H:%M:%S')
+    end
+  end
+end

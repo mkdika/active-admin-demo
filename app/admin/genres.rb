@@ -1,4 +1,5 @@
 ActiveAdmin.register Genre do
+
   permit_params :name
 
   index do

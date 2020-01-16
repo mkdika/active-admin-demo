@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  has_paper_trail
 
   enum membership: {
     silver: 'silver',
