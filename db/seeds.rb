@@ -5,3 +5,7 @@ User.create!(email: 'max@gmail.com', password: 'max', password_confirmation: 'ma
 Genre.create! name: 'Horror'
 Genre.create! name: 'Motivaton'
 Genre.create! name: 'Business'
+
+author = Author.create name: 'Budiman'
+publisher = Publisher.create name: 'Gramultimedia'
+Book = Book.create author: author, publisher: publisher, genre: Genre.all.sample, code: 'X01', isbn: 'abcd-1234', title: 'Lord of the Cling', year: 2020

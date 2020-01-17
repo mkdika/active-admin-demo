@@ -1,5 +1,5 @@
 ActiveAdmin.register Genre do
-
+  menu parent: 'Master'
   permit_params :name
 
   index do

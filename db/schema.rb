@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_111641) do
+ActiveRecord::Schema.define(version: 2020_01_17_070513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,28 @@ ActiveRecord::Schema.define(version: 2020_01_16_111641) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name", limit: 100
+    t.string "website", limit: 250
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "publisher_id"
+    t.bigint "genre_id"
+    t.string "code", limit: 50
+    t.string "isbn", limit: 100
+    t.string "title", limit: 250
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -46,6 +68,13 @@ ActiveRecord::Schema.define(version: 2020_01_16_111641) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", limit: 50
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "name", limit: 100
+    t.string "website", limit: 250
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,4 +109,6 @@ ActiveRecord::Schema.define(version: 2020_01_16_111641) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "publishers"
 end
