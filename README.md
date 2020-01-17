@@ -13,6 +13,8 @@ Ruby on Rails, Active Admin demo and example project.
 - [Devise](https://github.com/plataformatec/devise), flexible authentication solution, with databased auth.
 - [Cancancan](https://github.com/CanCanCommunity/cancancan), authorization libs, with multiple roles selection.
 - [Paper Trail](https://github.com/paper-trail-gem/paper_trail), track changes of Rails models, with DRY implementation.
+- Custom rake task:
+  - `db:reseed` to truncate all table and reseeding its data.
 
 ## Online demo
 
