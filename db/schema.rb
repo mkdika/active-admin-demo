@@ -39,13 +39,13 @@ ActiveRecord::Schema.define(version: 2020_01_17_070513) do
   create_table "books", force: :cascade do |t|
     t.bigint "author_id"
     t.bigint "publisher_id"
-    t.bigint "genre_id"
     t.string "code", limit: 50
     t.string "isbn", limit: 100
     t.string "title", limit: 250
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "genre_id"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["genre_id"], name: "index_books_on_genre_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"

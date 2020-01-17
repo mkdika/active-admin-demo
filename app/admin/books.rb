@@ -19,8 +19,8 @@ ActiveAdmin.register Book do
     actions
   end
 
-  filter :author, as: :select, collection: Author.order(:name).all
-  filter :publisher, as: :select, collection: Publisher.order(:name).all
+  filter :author_id, as: :select, collection: proc { Author.order(:name).all }
+  filter :publisher_id, as: :select, collection: proc { Publisher.order(:name).all }
   filter :code
   filter :isbn
   filter :title
