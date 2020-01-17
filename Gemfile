@@ -64,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Custom gems ---------------------------------------------
 
 # Active Admin
-gem 'activeadmin', '~> 2.5.0'
+gem 'activeadmin'
 gem 'arctic_admin'
 gem 'activeadmin_dynamic_fields'
 
