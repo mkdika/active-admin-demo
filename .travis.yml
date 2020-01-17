@@ -2,21 +2,28 @@ language: ruby
 sudo: false
 dist: xenial
 rvm:
-- 2.6.5
+  - 2.6.5
+
 before_install:
-- bundle install
+  - bundle install
+
 services:
-- postgresql
+  - postgresql
+
 env:
-- DATABASE_USERNAME=postgres DATABASE_PASSWORD= DATABASE_HOST=127.0.0.1 DATABASE_PORT=5432
+  - DATABASE_USERNAME=postgres DATABASE_PASSWORD= DATABASE_HOST=127.0.0.1 DATABASE_PORT=5432
+
 script:
-- rails db:setup
+  - rails db:setup
+
 branches:
   only:
-  - master
+    - master
+
 cache:
   directories:
-  - ".autoconf"
+  - .autoconf
+
 deploy:
   provider: heroku
   api_key:
@@ -24,9 +31,10 @@ deploy:
   app: activeadmin-demo
   on:
     repo: mkdika/active-admin-demo
+
 notifications:
   email:
     recipients:
-    - mkdika@gmail.com
+      - mkdika@gmail.com
     on_success: always
     on_failure: always
