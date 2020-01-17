@@ -1,6 +1,7 @@
 # Active Admin Demo
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
+[![Build Status](https://travis-ci.org/mkdika/active-admin-demo.svg?branch=master)](https://travis-ci.org/mkdika/active-admin-demo)
 
 Ruby on Rails, Active Admin demo and example project.
 
